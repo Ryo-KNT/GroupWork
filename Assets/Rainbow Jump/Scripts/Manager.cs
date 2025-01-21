@@ -17,10 +17,10 @@ namespace RainbowJump.Scripts
 
         public Transform playerTransform;
         public Text scoreText;
-        public Text highScoreText; // reference to the UI text for displaying the high score
+        public Text highScoreText; // reference to the UI text for displaying the high score　ハイスコアを表示するためのUIテキストへの参照
 
         public float score = 0f;
-        private float highScore = 0f; // variable to hold the high score
+        private float highScore = 0f; // variable to hold the high score　ハイスコアを保持する変数
 
         public bool gameOver = false;
 
@@ -41,7 +41,7 @@ namespace RainbowJump.Scripts
         private AudioSource audioSource;
 
 
-        // Start is called before the first frame update
+        // Start is called before the first frame update　Startは最初のフレームが更新される前に呼び出される
         void Start()
         {
             Application.targetFrameRate = 144;
@@ -50,7 +50,7 @@ namespace RainbowJump.Scripts
 
             audioSource = GetComponent<AudioSource>();
 
-            // Load the high score from PlayerPrefs and display it in the UI
+            // Load the high score from PlayerPrefs and display it in the UI　PlayerPrefsからハイスコアを読み込み、UIに表示する。
             highScore = PlayerPrefs.GetFloat("HighScore", 0f);
             highScoreText.text = "High Score: " + highScore.ToString("0");
         }
@@ -69,7 +69,7 @@ namespace RainbowJump.Scripts
                 deathParticle.SetActive(true);
                 gameOver = false;
 
-                // Save the high score if it's greater than the current high score
+                // Save the high score if it's greater than the current high score　ハイスコアが現在のハイスコアより大きい場合は保存する。
                 if (score > highScore)
                 {
                     highScore = score;
@@ -78,13 +78,13 @@ namespace RainbowJump.Scripts
                 }
             }
 
-            // Update the score to be the highest player's y position in the current game session
+            // Update the score to be the highest player's y position in the current game session　現在のゲームセッションで最も高いプレーヤーのYポジションになるようにスコアを更新する。
             if (playerTransform.position.y > score)
             {
                 score = playerTransform.position.y;
             }
 
-            // Display the score as the highest player's y position minus 3
+            // Display the score as the highest player's y position minus 3　最も高い選手のYポジションから3を引いたスコアを表示する。
             scoreText.text = (score).ToString("0");
         }
 

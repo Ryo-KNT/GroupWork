@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace RainbowJump.Scripts
         public float speed = 3f;
 
 
-        // Update is called once per frame
+        // Update is called once per frame　1フレームに1回更新
         void Update()
         {
             transform.Rotate(0f, 0f, speed * Time.deltaTime / 0.01f, Space.Self);
