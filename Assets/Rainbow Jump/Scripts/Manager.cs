@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace RainbowJump.Scripts
@@ -34,6 +35,8 @@ namespace RainbowJump.Scripts
         public GameObject settingsButton;
         public GameObject settingsButtons;
         public SettingsButton settingsButtonScript;
+
+        public GameObject TitleButton;
 
         public AudioClip tapSound;
         public AudioClip deathSound;
@@ -142,6 +145,11 @@ namespace RainbowJump.Scripts
 #elif UNITY_IOS
         Application.OpenURL(iOSUrl);
 #endif
+        }
+
+        public void change_button()
+        {
+            SceneManager.LoadScene("Title_Sumple");
         }
     }
 }
